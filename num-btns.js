@@ -187,11 +187,12 @@ function outResult() {
       }
 
       if (arr[i] == "/") {
-        if (i == arr.length - 2 && i != 1) {
-          result /= parseInt(arr[i + 1]);
-          break;
+        if (parseInt(arr[i - 1]) % parseInt(arr[i + 1]) != 0) {
+          result += parseInt(arr[i - 1]) / parseInt(arr[i + 1]);
+          result = parseFloat(result).toPrecision(4);
+        } else {
+          result += parseInt(arr[i - 1]) / parseInt(arr[i + 1]);
         }
-        result += parseInt(arr[i - 1]) / parseInt(arr[i + 1]);
       }
     }
     isResult = true;
